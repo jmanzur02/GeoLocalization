@@ -24,8 +24,7 @@ udp_socket.bind((host, port))
 print(f"Esperando conexiones en {host}:{port}")
 
 while True:
-    try:
-        udp_socket.close()      
+    try:      
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind((host, port))
         break  # Si enlace exitoso, salir del bucle

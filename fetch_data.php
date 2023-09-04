@@ -1,8 +1,8 @@
 <?php
 // Database connection
-$dbHost = 'localhost';
-$dbUser = 'root';
-$dbPass = 'O@rlando0310';
+$dbHost = 'basededatos.cnbw6moot2c2.us-east-1.rds.amazonaws.com';
+$dbUser = 'manzur';
+$dbPass = 'JuanD0212_2003';
 $dbName = 'basededatos';
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);

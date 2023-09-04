@@ -19,14 +19,15 @@ host = "0.0.0.0"
 port = 14000
 
 # Crear el socket UDP
-udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-udp_socket.bind((host, port))
-print(f"Esperando conexiones en {host}:{port}")
+#udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#udp_socket.bind((host, port))
+
 
 while True:
     try:      
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind((host, port))
+        print(f"Esperando conexiones en {host}:{port}")
         break  # Si enlace exitoso, salir del bucle
     except OSError as e:
         if e.errno == 10048:  # Error de puerto ya en uso
@@ -36,7 +37,7 @@ while True:
             raise
 
     # Recibir datos del cliente
-    data, client_address = udp_socket.recvfrom(1024)
+    data, client_address = sock.recvfrom(1024)
     data = data.decode("utf-8")
     print(f"Dato recibido desde {client_address}: {data}")
 

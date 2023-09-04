@@ -16,7 +16,7 @@ db_cursor = db_connection.cursor()
 
 # Configuración del socket UDP
 host = "0.0.0.0"
-port = 14000
+port = 7000
 
 # Crear el socket UDP
 udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

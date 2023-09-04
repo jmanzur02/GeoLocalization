@@ -27,7 +27,9 @@ while True:
     try:      
         # Recibir datos del cliente
         data, client_address = udp_socket.recvfrom(1024)
+        print("1")
         data = data.decode("utf-8")
+        print("2")
         print(f"Dato recibido desde {client_address}: {data}")
 
         # Procesar los valores de latitud, longitud y estampa de tiempo
@@ -52,6 +54,7 @@ while True:
         else:
             print("Valores de latitud, longitud o estampa de tiempo faltantes en los datos recibidos.")
     except OSError as e:
+        print("3")
         if e.errno == 10048:  # Error de puerto ya en uso
             print(f"Puerto {port} en uso. Esperando 5 segundos...")
             time.sleep(5)
@@ -59,5 +62,6 @@ while True:
             raise
 
 # Cerrar la conexión con la base de datos al final
+print("4")
 db_cursor.close()
 db_connection.close()

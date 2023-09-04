@@ -54,7 +54,7 @@ while True:
         else:
             print("Valores de latitud, longitud o estampa de tiempo faltantes en los datos recibidos.")
     except OSError as e:
-        print("3")
+        print(e.errno)
         if e.errno == 10048:  # Error de puerto ya en uso
             print(f"Puerto {port} en uso. Esperando 5 segundos...")
             time.sleep(5)

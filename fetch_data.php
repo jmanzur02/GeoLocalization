@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch GPS data from the database
-$sql = "SELECT * FROM ubicacion ORDER BY Timestamp DESC LIMIT 1";
+$sql = "SELECT * FROM posicion ORDER BY Timestamp DESC LIMIT 1";
 $result = $conn->query($sql);
 
 $data = [];

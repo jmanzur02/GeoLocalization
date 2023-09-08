@@ -11,6 +11,15 @@ $(document).ready(function() {
         map: map,
     });
 
+    var routePath = new google.maps.Polyline({
+        path: [],
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+    });
+    routePath.setMap(map);
+
     // Function to fetch and display data
     function fetchData() {
         $.ajax({
@@ -24,6 +33,15 @@ $(document).ready(function() {
 
                 // Center the map on the marker position
                 map.setCenter(position);
+
+                routePath.getPath().push(position);
+
+                var maxRoutePoints = 100;
+                var routePathArray = routePath.getPath().getArray();
+                if (routePathArray.length >= maxRoutePoints) {
+                    routePathArray.shift();
+                    routePath.setPath(routePathArray);
+                }
 
                 // Update the data container
                 $("#dataContainer").empty();

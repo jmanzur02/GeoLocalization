@@ -4,9 +4,9 @@ import mysql.connector
 
 # Configuración de la base de datos
 db_config = {
-    "host": "host",
-    "user": "user",
-    "password": "password",
+    "host": "basededatos.cnbw6moot2c2.us-east-1.rds.amazonaws.com",
+    "user": "manzur",
+    "password": "JuanD0212_2003",
     "database": "basededatos"
 }
 

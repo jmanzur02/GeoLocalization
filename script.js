@@ -1,49 +1,47 @@
 $(document).ready(function() {
-    // Create a new map object
+    // Crea un nuevo objeto de mapa
     var map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },
         zoom: 18,
     });
 
-    // Create a new marker object
+    // Crea un nuevo objeto de marcador
     var marker = new google.maps.Marker({
         position: { lat: 0, lng: 0 },
         map: map,
     });
 
-    var routePath = new google.maps.Polyline({
-        path: [],
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-    });
-    routePath.setMap(map);
+    // Crea una nueva instancia de Polyline.js
+    var polyline = require('@mapbox/polyline');
 
-    // Function to fetch and display data
+    // Función para obtener y mostrar datos
     function fetchData() {
         $.ajax({
             type: "GET",
             url: "fetch_data.php",
             dataType: "json",
             success: function(data) {
-                // Update the marker position
+                // Decodifica la polilínea
+                var decodedPath = polyline.decode(data[0].Polyline);
+
+                // Crea una nueva instancia de Polyline
+                var routePath = new google.maps.Polyline({
+                    path: decodedPath,
+                    geodesic: true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+                routePath.setMap(map);
+
+                // Actualiza la posición del marcador
                 var position = new google.maps.LatLng(data[0].Latitud, data[0].Longitud);
                 marker.setPosition(position);
 
-                // Center the map on the marker position
+                // Centra el mapa en la posición del marcador
                 map.setCenter(position);
 
-                routePath.getPath().push(position);
-
-                var maxRoutePoints = 100;
-                var routePathArray = routePath.getPath().getArray();
-                if (routePathArray.length >= maxRoutePoints) {
-                    routePathArray.shift();
-                    routePath.setPath(routePathArray);
-                }
-
-                // Update the data container
+                // Actualiza el contenedor de datos
                 $("#dataContainer").empty();
 
                 data.forEach(function(item) {
@@ -57,9 +55,9 @@ $(document).ready(function() {
         });
     }
 
-    // Fetch data initially
+    // Obtiene los datos inicialmente
     fetchData();
 
-    // Fetch data every 5 seconds
+    // Obtiene los datos cada 5 segundos
     setInterval(fetchData, 5000);
 });

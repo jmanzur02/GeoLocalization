@@ -22,6 +22,7 @@ $(document).ready(function() {
     
         // Update the marker position
         marker.setPosition(newCoordinate);
+        map.setPosition(newCoordinate)
     
         // Check if we have a valid last coordinate to draw a line from
         if (lastCoordinate) {

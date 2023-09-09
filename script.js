@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
     // Crea una nueva instancia de Polyline.js
-    var polyline = require('@mapbox/polyline');
+    //var polyline = require('@mapbox/polyline');
 
     // Función para obtener y mostrar datos
     function fetchData() {

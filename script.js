@@ -21,18 +21,7 @@ $(document).ready(function() {
             url: "fetch_data.php",
             dataType: "json",
             success: function(data) {
-                // Decodifica la polilínea
-                var decodedPath = polyline.decode(data[0].Polyline);
-
-                // Crea una nueva instancia de Polyline
-                var routePath = new google.maps.Polyline({
-                    path: decodedPath,
-                    geodesic: true,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2
-                });
-                routePath.setMap(map);
+                
 
                 // Actualiza la posición del marcador
                 var position = new google.maps.LatLng(data[0].Latitud, data[0].Longitud);

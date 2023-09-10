@@ -11,16 +11,31 @@ $(document).ready(function() {
         map: map,
     });
 
-    // Crea una nueva instancia de Polyline.js
-    //var polyline = require('@mapbox/polyline');
-
-    // Función para obtener y mostrar datos
+   
     function fetchData() {
         $.ajax({
             type: "GET",
             url: "fetch_data.php",
             dataType: "json",
             success: function(data) {
+
+                if (data.length >= 2) {
+                    // Crea un objeto de línea
+                    var line = new google.maps.Polyline({
+                        path: [],
+                        strokeColor: "#0000FF",
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                    });
+
+                    // Agrega los puntos de la línea al objeto de línea
+                    for (var i = 0; i < data.length; i++) {
+                        line.getPath().push(new google.maps.LatLng(data[i].Latitud, data[i].Longitud));
+                    }
+
+                    // Agrega la línea al mapa
+                    line.setMap(map);
+                }
                 
 
                 // Actualiza la posición del marcador

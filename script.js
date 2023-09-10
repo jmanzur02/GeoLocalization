@@ -28,20 +28,14 @@ $(document).ready(function() {
                         strokeWeight: 5,
                     });
 
+                    line.getPath().clear();
+
                     // Agrega los puntos de la línea al objeto de línea
                     for (var i = 0; i < data.length; i++) {
                         line.getPath().push(new google.maps.LatLng(data[i].Latitud, data[i].Longitud));
                         // Agrega la línea al mapa
                         line.setMap(map);
                     }
-
-                    var timer = setInterval(function() {
-                        // Verifica si el objeto line existe
-                        if (line) {
-                            // Elimina el objeto line
-                            line.setMap(null);
-                        }
-                    }, 10000);
                 }
                 
 

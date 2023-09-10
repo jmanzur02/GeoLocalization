@@ -18,6 +18,7 @@
             <!-- Data will be dynamically inserted here -->
         </div>
         <div id="map"></div>
+        <button id="borrar-rutas">Borrar rutas</button>
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp5birBy8ELAwJKpgqApyKXgQkPzUFjAg"></script>

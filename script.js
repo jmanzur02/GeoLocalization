@@ -36,6 +36,12 @@ $(document).ready(function() {
                         // Agrega la línea al mapa
                         line.setMap(map);
                     }
+
+                    // Agrega el evento click al botón
+                    $("#borrar-rutas").click(function() {
+                        // Elimina la línea del mapa
+                        line.setMap(null);
+                    });
                 }
                 
 

@@ -25,7 +25,7 @@ $(document).ready(function() {
                         path: [],
                         strokeColor: "#0000FF",
                         strokeOpacity: 0.8,
-                        strokeWeight: 2,
+                        strokeWeight: 5,
                     });
 
                     // Agrega los puntos de la línea al objeto de línea

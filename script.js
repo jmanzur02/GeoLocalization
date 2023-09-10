@@ -31,10 +31,9 @@ $(document).ready(function() {
                     // Agrega los puntos de la línea al objeto de línea
                     for (var i = 0; i < data.length; i++) {
                         line.getPath().push(new google.maps.LatLng(data[i].Latitud, data[i].Longitud));
+                        // Agrega la línea al mapa
+                        line.setMap(map);
                     }
-
-                    // Agrega la línea al mapa
-                    line.setMap(map);
                 }
                 
 

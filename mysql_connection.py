@@ -1,6 +1,7 @@
 import socket
 import time
 import mysql.connector
+import pytz
 
 # Configuración de la base de datos
 db_config = {
@@ -22,8 +23,6 @@ port = 14000
 udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp_socket.bind((host, port))
 print(f"Esperando conexiones en {host}:{port}")
-
-db_connection.cursor().execute("SET TIME_ZONE = 'America/Bogota'")
 
 while True:
     try:      
@@ -47,12 +46,18 @@ while True:
             elif value.startswith('Timestamp:'):
                 timestamp = int(value.split(': ')[1])/1000
 
+        # Obtener la zona horaria local
+        local_timezone = pytz.timezone("America/Bogota")
+
+        # Convierta la estampa de tiempo UTC a la zona horaria local
+        timestamp_local = timestamp.astimezone(local_timezone)
+
         # Insertar datos en la base de datos
-        if latitud is not None and longitud is not None and timestamp is not None:
+        if latitud is not None and longitud is not None and timestamp_local is not None:
             insert_query = "INSERT INTO posicion (Latitud, Longitud, Timestamp) VALUES (%s, %s, FROM_UNIXTIME(%s))"
-            db_cursor.execute(insert_query, (latitud, longitud,timestamp))
+            db_cursor.execute(insert_query, (latitud, longitud,timestamp_local))
             db_connection.commit()
-            print("Dato insertado en la base de datos:", latitud, longitud, timestamp)
+            print("Dato insertado en la base de datos:", latitud, longitud, timestamp_local)
         else:
             print("Valores de latitud, longitud o estampa de tiempo faltantes en los datos recibidos.")
     except OSError as e:

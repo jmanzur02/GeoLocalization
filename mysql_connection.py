@@ -23,6 +23,8 @@ udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp_socket.bind((host, port))
 print(f"Esperando conexiones en {host}:{port}")
 
+db_connection.cursor().execute("SET TIME_ZONE = 'America/Bogota'")
+
 while True:
     try:      
         # Recibir datos del cliente

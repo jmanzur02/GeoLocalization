@@ -1,5 +1,6 @@
 import socket
 import time
+import datetime
 import mysql.connector
 import pytz
 
@@ -46,11 +47,14 @@ while True:
             elif value.startswith('Timestamp:'):
                 timestamp = int(value.split(': ')[1])/1000
 
-        # Obtener la zona horaria local
+        # Obtenga la zona horaria local
         local_timezone = pytz.timezone("America/Bogota")
 
+        # Convierta la estampa de tiempo UTC a un objeto datetime
+        timestamp_utc = datetime.datetime.fromtimestamp(timestamp)
+
         # Convierta la estampa de tiempo UTC a la zona horaria local
-        timestamp_local = timestamp.astimezone(local_timezone)
+        timestamp_local = timestamp_utc.astimezone(local_timezone)
 
         # Insertar datos en la base de datos
         if latitud is not None and longitud is not None and timestamp_local is not None:

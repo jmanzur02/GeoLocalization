@@ -1,9 +1,9 @@
 <?php
 // Database connection
-$dbHost = 'basededatos.cnbw6moot2c2.us-east-1.rds.amazonaws.com';
-$dbUser = 'manzur';
-$dbPass = 'JuanD0212_2003';
-$dbName = 'basededatos';
+$dbHost = 'host';
+$dbUser = 'user';
+$dbPass = 'password';
+$dbName = 'database';
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 if ($conn->connect_error) {

@@ -56,5 +56,6 @@ $response = [
 
 // Return data as JSON
 header('Content-Type: application/json');
-echo json_encode($response);
+echo json_encode($data);
+echo json_encode($dataRango)
 ?>

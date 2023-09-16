@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
     $("#horaInicial, #horaFinal").timepicker({
-        timeFormat: "HH:mm:ss",
+        timeFormat: "HH:mm",
         showSecond: true,
         showMillisec: false,
         timeInput: true

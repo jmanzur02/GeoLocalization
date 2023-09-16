@@ -19,10 +19,10 @@
             <!-- Data will be dynamically inserted here -->
         </div>
         <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="text" id="fechaInicio" name="fechaInicio">
+        <input type="date" id="fechaInicio" name="fechaInicio">
         
         <label for="fechaFinal">Fecha Final:</label>
-        <input type="text" id="fechaFinal" name="fechaFinal">
+        <input type="date" id="fechaFinal" name="fechaFinal">
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
 

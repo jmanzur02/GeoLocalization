@@ -20,8 +20,15 @@
         </div>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
-        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control date">
-        <input type="text" id="fechaFin" name="fechaFin" class="form-control date">
+        <button type="button" id="fechaInicio" class="btn btn-primary">
+            <i class="fa fa-calendar"></i>
+            <input type="hidden" id="fechaInicioHidden" value="" />
+        </button>
+        <button type="button" id="fechaFin" class="btn btn-primary">
+            <i class="fa fa-calendar"></i>
+            <input type="hidden" id="fechaFinHidden" value="" />
+        </button>
+
 
     </div>
 

@@ -1,11 +1,34 @@
 $(document).ready(function() {
     $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
 
-    // Agrega el plugin de date picker a los elementos HTML
-    $(".form-control.date").datepicker({
-        yearRange: "2023:2024",
-        todayHighlight: true,
-        autoclose: true,
+     // Agrega el evento click a los botones
+     $("#fechaInicio").click(function() {
+        // Abre el date picker
+        $(this).datepicker({
+            yearRange: "2023:2024",
+            todayHighlight: true,
+            autoclose: true,
+        });
+    });
+
+    $("#fechaFin").click(function() {
+        // Abre el date picker
+        $(this).datepicker({
+            yearRange: "2023:2024",
+            todayHighlight: true,
+            autoclose: true,
+        });
+    });
+
+    // Obtiene la fecha y la hora seleccionadas
+    $("#fechaInicio").on("change", function() {
+        var fechaInicio = $(this).datepicker("getDate");
+        $("#fechaInicioHidden").val(fechaInicio);
+    });
+
+    $("#fechaFin").on("change", function() {
+        var fechaFin = $(this).datepicker("getDate");
+        $("#fechaFinHidden").val(fechaFin);
     });
 
 

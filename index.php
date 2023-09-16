@@ -28,6 +28,7 @@
         <input type="time" id="horaInicial" name="horaInicial" data-date-range="2023/2023"/>
         <label for="horaFinal">Hora Final:</label>
         <input type="time" id="horaFinal" name="horaFinal" data-date-range="2023/2023"/>
+        <button id="trazar-ruta">Trazar ruta</button>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
 

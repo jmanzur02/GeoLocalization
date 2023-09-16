@@ -40,11 +40,6 @@ $(document).ready(function() {
         horaFinal = $("#horaFinal").timepicker("getTime");
     });
 
-
-
-     
-
-
     // Crea un nuevo objeto de mapa
     var map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },
@@ -111,6 +106,34 @@ $(document).ready(function() {
             }
         });
     }
+
+    function dibujarRuta(data) {
+        // Verifica que haya al menos dos puntos para trazar la ruta
+        if (data.length >= 2) {
+            // Crea un objeto de línea
+            var line = new google.maps.Polyline({
+                path: [],
+                strokeColor: "#FF0000", // Color de la línea (rojo en este ejemplo)
+                strokeOpacity: 0.8,
+                strokeWeight: 3, // Grosor de la línea
+            });
+    
+            // Agrega los puntos de la línea al objeto de línea
+            for (var i = 0; i < data.length; i++) {
+                line.getPath().push(new google.maps.LatLng(data[i].Latitud, data[i].Longitud));
+            }
+    
+            // Agrega la línea al mapa
+            line.setMap(map);
+        } else {
+            alert("No hay suficientes datos para trazar la ruta.");
+        }
+    }
+    
+    // Llama a la función para trazar la ruta cuando se haga clic en un botón
+    $("#trazar-ruta").click(function() {
+        dibujarRuta(dataRango); // Pasa el arreglo dataRango para trazar la ruta
+    });
 
     // Obtiene los datos inicialmente
     fetchData();

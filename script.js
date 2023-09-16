@@ -2,7 +2,7 @@ $(document).ready(function() {
     $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
 
     // Configura los date pickers para incluir fecha y hora
-    $("#fechaInicio, #fechaFinal").datepicker({
+    $("#fechaInicio, #fechaFinal").datetimepicker({
         dateFormat: "yy-mm-dd",
         timeFormat: "HH:mm:ss",
         showSecond: true,

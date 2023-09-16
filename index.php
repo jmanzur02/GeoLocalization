@@ -10,6 +10,7 @@
             width: 100%;
         }
     </style>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
 </head>
 <body>
     <div class="container">
@@ -19,6 +20,9 @@
         </div>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
+        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control date">
+        <input type="text" id="fechaFin" name="fechaFin" class="form-control date">
+
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp5birBy8ELAwJKpgqApyKXgQkPzUFjAg"></script>

@@ -1,4 +1,15 @@
 $(document).ready(function() {
+    $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
+
+    // Agrega el plugin de date picker a los elementos HTML
+    $(".form-control.date").datepicker({
+        yearRange: "2023:2024",
+        todayHighlight: true,
+        autoclose: true,
+    });
+
+
+
     // Crea un nuevo objeto de mapa
     var map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },

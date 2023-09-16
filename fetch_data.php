@@ -1,10 +1,10 @@
 <?php
 // Database connection
-//$dbHost = 'host';
-//$dbUser = 'user';
-//$dbPass = 'password';
-//$dbName = 'database';
-include 'db_credentials.php';
+$dbHost = 'host';
+$dbUser = 'user';
+$dbPass = 'password';
+$dbName = 'database';
+
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 if ($conn->connect_error) {

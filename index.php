@@ -19,10 +19,10 @@
             <!-- Data will be dynamically inserted here -->
         </div>
         <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="date" id="fechaInicio" name="fechaInicio">
+        <input type="date" id="fechaInicio" name="fechaInicio" data-date-range="2023/2023"/>
         
         <label for="fechaFinal">Fecha Final:</label>
-        <input type="date" id="fechaFinal" name="fechaFinal">
+        <input type="date" id="fechaFinal" name="fechaFinal" data-date-range="2023/2023"/>>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
 

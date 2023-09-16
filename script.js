@@ -8,6 +8,7 @@ $(document).ready(function() {
         showSecond: true,
         showMillisec: false,
         timeInput: true
+        
     });
 
     var fechaInicio;

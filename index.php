@@ -10,7 +10,7 @@
             width: 100%;
         }
     </style>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="container">
@@ -18,22 +18,18 @@
         <div class="data-container" id="dataContainer">
             <!-- Data will be dynamically inserted here -->
         </div>
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="text" id="fechaInicio" name="fechaInicio">
+        
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="text" id="fechaFinal" name="fechaFinal">
         <div id="map"></div>
-        <button id="borrar-rutas">Borrar rutas</button>
-        <button type="button" id="fechaInicio" class="btn btn-primary">
-            <i class="fa fa-calendar"></i>
-            <input type="hidden" id="fechaInicioHidden" value="" />
-        </button>
-        <button type="button" id="fechaFin" class="btn btn-primary">
-            <i class="fa fa-calendar"></i>
-            <input type="hidden" id="fechaFinHidden" value="" />
-        </button>
-
-
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp5birBy8ELAwJKpgqApyKXgQkPzUFjAg"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
     <script src="script.js"></script>
 </body>
 </html>

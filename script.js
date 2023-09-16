@@ -1,36 +1,28 @@
 $(document).ready(function() {
     $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
 
-     // Agrega el evento click a los botones
-     $("#fechaInicio").click(function() {
-        // Abre el date picker
-        $(this).datepicker({
-            yearRange: "2023:2024",
-            todayHighlight: true,
-            autoclose: true,
-        });
+    // Configura los date pickers para incluir fecha y hora
+    $("#fechaInicio, #fechaFinal").datetimepicker({
+        dateFormat: "yy-mm-dd",
+        timeFormat: "HH:mm:ss",
+        showSecond: true,
+        showMillisec: false,
+        timeInput: true
     });
 
-    $("#fechaFin").click(function() {
-        // Abre el date picker
-        $(this).datepicker({
-            yearRange: "2023:2024",
-            todayHighlight: true,
-            autoclose: true,
-        });
-    });
+    var fechaInicio;
+    var fechaFinal;
 
-    // Obtiene la fecha y la hora seleccionadas
+    // Establece los eventos de cambio para actualizar las variables de fecha
     $("#fechaInicio").on("change", function() {
-        var fechaInicio = $(this).datepicker("getDate");
-        $("#fechaInicioHidden").val(fechaInicio);
+        fechaInicio = $("#fechaInicio").datetimepicker("getDate");
     });
 
-    $("#fechaFin").on("change", function() {
-        var fechaFin = $(this).datepicker("getDate");
-        $("#fechaFinHidden").val(fechaFin);
+    $("#fechaFinal").on("change", function() {
+        fechaFinal = $("#fechaFinal").datetimepicker("getDate");
     });
 
+     
 
 
     // Crea un nuevo objeto de mapa

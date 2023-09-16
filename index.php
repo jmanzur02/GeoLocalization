@@ -22,7 +22,12 @@
         <input type="date" id="fechaInicio" name="fechaInicio" data-date-range="2023/2023"/>
         
         <label for="fechaFinal">Fecha Final:</label>
-        <input type="date" id="fechaFinal" name="fechaFinal" data-date-range="2023/2023"/>>
+        <input type="date" id="fechaFinal" name="fechaFinal" data-date-range="2023/2023"/>
+
+        <label for="horaInicial">Hora Inicial:</label>
+        <input type="time" id="horaInicial" name="horaInicial" data-date-range="2023/2023"/>
+        <label for="horaFinal">Hora Final:</label>
+        <input type="time" id="horaFinal" name="horaFinal" data-date-range="2023/2023"/>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
 

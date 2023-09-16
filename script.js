@@ -11,6 +11,15 @@ $(document).ready(function() {
         
     });
 
+    $("#horaInicial, #horaFinal").timepicker({
+        timeFormat: "HH:mm:ss",
+        showSecond: true,
+        showMillisec: false,
+        timeInput: true
+        
+    });
+
+
     var fechaInicio;
     var fechaFinal;
 
@@ -22,6 +31,16 @@ $(document).ready(function() {
     $("#fechaFinal").on("change", function() {
         fechaFinal = $("#fechaFinal").datetimepicker("getDate");
     });
+
+    $("#horaInicial").on("change", function() {
+        horaInicial = $("#horaInicial").timepicker("getTime");
+    });
+
+    $("#horaFinal").on("change", function() {
+        horaFinal = $("#horaFinal").timepicker("getTime");
+    });
+
+
 
      
 

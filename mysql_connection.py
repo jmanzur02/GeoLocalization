@@ -1,17 +1,15 @@
 import socket
 import time
 import mysql.connector
-
-# Configuración de la base de datos
-db_config = {
-    "host": "host",
-    "user": "user",
-    "password": "password",
-    "database": "database"
-}
+from dbconfig import *
 
 # Crear una conexión a la base de datos
-db_connection = mysql.connector.connect(**db_config)
+db_connection = mysql.connector.connect(
+    host = db_host,
+    user = db_user,
+    password = db_password,
+    database = db_database
+)
 db_cursor = db_connection.cursor()
 
 # Configuración del socket UDP

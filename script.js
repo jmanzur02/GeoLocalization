@@ -22,6 +22,8 @@ $(document).ready(function() {
 
     var fechaInicio;
     var fechaFinal;
+    var horaInicial;
+    var horaFinal;
 
     // Establece los eventos de cambio para actualizar las variables de fecha
     $("#fechaInicio").on("change", function() {

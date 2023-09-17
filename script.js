@@ -109,43 +109,43 @@ $(document).ready(function() {
         });
     }
 
-    function dibujarRuta() {
-        $.ajax({
-            type: "GET",
-            url: "rango.php",
-            dataType: "json",
-            success: function(dataRango){
+    //function dibujarRuta() {
+       // $.ajax({
+         //   type: "GET",
+           // url: "rango.php",
+            //dataType: "json",
+            //success: function(dataRango){
                 // Verifica que haya al menos dos puntos para trazar la ruta
-                if (dataRango.length >= 2) {
+              //  if (dataRango.length >= 2) {
                     // Crea un objeto de línea
-                    var line_route = new google.maps.Polyline({
-                        path: [],
-                        strokeColor: "#FF0000", // Color de la línea (rojo en este ejemplo)
-                        strokeOpacity: 0.8,
-                        strokeWeight: 3, // Grosor de la línea
-                    });
+                //    var line_route = new google.maps.Polyline({
+                  //      path: [],
+                    //    strokeColor: "#FF0000", // Color de la línea (rojo en este ejemplo)
+                      //  strokeOpacity: 0.8,
+                        //strokeWeight: 3, // Grosor de la línea
+                    //});
             
                     // Agrega los puntos de la línea al objeto de línea
-                    for (var i = 0; i < dataRango.length; i++) {
-                        line_route.getPath().push(new google.maps.LatLng(dataRango[i].Latitud, dataRango[i].Longitud));
-                    }
+                    //for (var i = 0; i < dataRango.length; i++) {
+                      //  line_route.getPath().push(new google.maps.LatLng(dataRango[i].Latitud, dataRango[i].Longitud));
+                    //}
             
                     // Agrega la línea al mapa
-                    line_route.setMap(map);
-                } else {
-                    alert("No hay suficientes datos para trazar la ruta.");
-                }
+                    //line_route.setMap(map);
+                //} else {
+                  //  alert("No hay suficientes datos para trazar la ruta.");
+                //}
 
-            } 
-        })
+            //} 
+        //})
 
         
-    }
+    //}
     
     // Llama a la función para trazar la ruta cuando se haga clic en un botón
-    $("#trazar-ruta").click(function() {
-        dibujarRuta(); // Pasa el arreglo dataRango para trazar la ruta
-    });
+    //$("#trazar-ruta").click(function() {
+      //  dibujarRuta(); // Pasa el arreglo dataRango para trazar la ruta
+    //});
 
     // Obtiene los datos inicialmente
     fetchData();

@@ -1,45 +1,4 @@
 $(document).ready(function() {
-    $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
-
-    // Configura los date pickers para incluir fecha y hora
-    $("#fechaInicio, #fechaFinal").datetimepicker({
-        dateFormat: "yy-mm-dd",
-        timeFormat: "HH:mm:ss",
-        showSecond: true,
-        showMillisec: false,
-        timeInput: true
-        
-    });
-
-    $("#horaInicial, #horaFinal").timepicker({
-        timeFormat: "HH:mm",
-        showSecond: true,
-        showMillisec: false,
-        timeInput: true
-        
-    });
-
-
-    var fechaInicio;
-    var fechaFinal;
-
-    // Establece los eventos de cambio para actualizar las variables de fecha
-    $("#fechaInicio").on("change", function() {
-        fechaInicio = $("#fechaInicio").datetimepicker("getDate");
-    });
-
-    $("#fechaFinal").on("change", function() {
-        fechaFinal = $("#fechaFinal").datetimepicker("getDate");
-    });
-
-    $("#horaInicial").on("change", function() {
-        horaInicial = $("#horaInicial").timepicker("getTime");
-    });
-
-    $("#horaFinal").on("change", function() {
-        horaFinal = $("#horaFinal").timepicker("getTime");
-    });
-
     // Crea un nuevo objeto de mapa
     var map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },
@@ -106,44 +65,6 @@ $(document).ready(function() {
             }
         });
     }
-
-    function dibujarRuta() {
-        $.ajax({
-            type: "GET",
-            url: "rango.php",
-            dataType: "json",
-            success: function(dataRango){
-                // Verifica que haya al menos dos puntos para trazar la ruta
-                if (dataRango.length >= 2) {
-                    // Crea un objeto de línea
-                    var line_route = new google.maps.Polyline({
-                        path: [],
-                        strokeColor: "#FF0000", // Color de la línea (rojo en este ejemplo)
-                        strokeOpacity: 0.8,
-                        strokeWeight: 3, // Grosor de la línea
-                    });
-            
-                    // Agrega los puntos de la línea al objeto de línea
-                    for (var i = 0; i < dataRango.length; i++) {
-                        line_route.getPath().push(new google.maps.LatLng(dataRango[i].Latitud, dataRango[i].Longitud));
-                    }
-            
-                    // Agrega la línea al mapa
-                    line_route.setMap(map);
-                } else {
-                    alert("No hay suficientes datos para trazar la ruta.");
-                }
-
-            } 
-        })
-
-        
-    }
-    
-    // Llama a la función para trazar la ruta cuando se haga clic en un botón
-    $("#trazar-ruta").click(function() {
-        dibujarRuta(); // Pasa el arreglo dataRango para trazar la ruta
-    });
 
     // Obtiene los datos inicialmente
     fetchData();

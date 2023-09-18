@@ -19,7 +19,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sqlRango = "SELECT Latitud, Longitud FROM posicion WHERE Timestamp >= ? AND Timestamp <= ?";
+$sqlRango = "SELECT Latitud, Longitud FROM posicion WHERE Timestamp >= '?' AND Timestamp <= '?'";
 $stmt = $conn->prepare($sqlRango);
 
 // Bind parameters

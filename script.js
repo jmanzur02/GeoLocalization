@@ -137,7 +137,7 @@ $(document).ready(function() {
         var horaFinal = $("#horaFinal").val();
 
         // Verifica que las fechas sean válidas
-        if (fechaInicio && fechaFinal) {
+        if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
             // Realiza la solicitud AJAX inmediatamente
             $.ajax({
                 type: "POST", // Cambiado a POST

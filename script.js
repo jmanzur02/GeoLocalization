@@ -103,22 +103,50 @@ $(document).ready(function() {
         }
     }
 
+    // Función para trazar la ruta
+    function drawRoute(dataRango) {
+        // Verifica que los datos sean válidos
+        if (dataRango.length >= 2) {
+            // Crea un objeto de línea
+            var line = new google.maps.Polyline({
+                path: [],
+                strokeColor: "#0000FF", // Color de la línea
+                strokeOpacity: 0.8, // Opacidad de la línea
+                strokeWeight: 5, // Grosor de la línea
+            });
+
+            // Agrega los puntos de la línea al objeto de línea
+            for (var i = 0; i < dataRango.length; i++) {
+                line.getPath().push(new google.maps.LatLng(dataRango[i].Latitud, dataRango[i].Longitud));
+            }
+
+            // Agrega la línea al mapa
+            line.setMap(map);
+        } else {
+            alert("No hay suficientes datos para trazar la ruta.");
+        }
+    }
+
     // Llama a la función para trazar la ruta cuando se haga clic en un botón
     $("#trazar-ruta").click(function() {
         // Obtiene los valores de fecha y hora inmediatamente
-        var fechaInicio = $("#fechaInicio").datetimepicker("getDate");
-        var fechaFinal = $("#fechaFinal").datetimepicker("getDate");
+        var fechaInicio = $("#fechaInicio").val();
+        var fechaFinal = $("#fechaFinal").val();
+        var horaInicial = $("#horaInicial").val();
+        var horaFinal = $("#horaFinal").val();
 
         // Verifica que las fechas sean válidas
-        if (fechaInicio && fechaFinal) {
+        if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
             // Realiza la solicitud AJAX inmediatamente
             $.ajax({
-                type: "GET",
+                type: "POST", // Cambiado a POST
                 url: "rango.php",
                 dataType: "json",
                 data: {
                     fechaInicio: fechaInicio,
-                    fechaFinal: fechaFinal
+                    fechaFinal: fechaFinal,
+                    horaInicial: horaInicial,
+                    horaFinal: horaFinal
                 },
                 success: function(dataRango) {
                     // Procesa los datos y traza la ruta
@@ -129,6 +157,7 @@ $(document).ready(function() {
             alert("Por favor, selecciona fechas y horas válidas.");
         }
     });
+
     // Obtiene los datos inicialmente
     fetchData();
 

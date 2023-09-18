@@ -7,7 +7,9 @@ $dbName = 'basededatos';
 
 // Obtén las fechas de inicio y finalización desde el cliente
 $fechaInicio = $_GET['fechaInicio'];
+var_dump($fechaInicio);
 $fechaFinal = $_GET['fechaFinal'];
+var_dump($fechaFinal);
 
 // Validación de formato de fecha (ajusta el formato según tus datos)
 if (!strtotime($fechaInicio) || !strtotime($fechaFinal)) {

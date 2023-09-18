@@ -146,8 +146,8 @@ $(document).ready(function() {
                 data: {
                     fechaInicio: fechaInicio,
                     fechaFinal: fechaFinal,
-                    horaInicial: horaInicial,
-                    horaFinal: horaFinal
+                    //horaInicial: horaInicial,
+                    //horaFinal: horaFinal
                 },
                 success: function(dataRango) {
                     // Procesa los datos y traza la ruta

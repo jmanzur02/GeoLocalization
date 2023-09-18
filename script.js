@@ -125,6 +125,7 @@ $(document).ready(function() {
             url: "rango.php",
             dataType: "json",
             success: function(dataRango) {
+                console.log(dataRango);
                 drawRoute(dataRango);
             }
         });

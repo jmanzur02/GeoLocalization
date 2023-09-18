@@ -10,22 +10,7 @@ $(document).ready(function() {
         
     });
 
-    // Configura el evento de cambio para verificar que las fechas y horas seleccionadas sean válidas
-    $("#fechaInicio").on("change", function() {
-        fechaInicio = $("#fechaInicio").datetimepicker("getDate");
-
-        // Verifica que la fecha de inicio sea anterior a la fecha de finalización
-        if (fechaInicio > fechaFinal) {
-            alert("La fecha de inicio debe ser anterior a la fecha de finalización.");
-            return;
-        }
-    });
-
-    // Obtiene las fechas de inicio y finalización
-    var fechaInicio = $("#fechaInicio").datetimepicker("getDate");
-    console.log(fechaInicio);
-    var fechaFinal = $("#fechaFinal").datetimepicker("getDate");
-    console.log(fechaFinal);
+    
 
 
     // Crea un nuevo objeto de mapa
@@ -121,17 +106,29 @@ $(document).ready(function() {
 
     // Llama a la función para trazar la ruta cuando se haga clic en un botón
     $("#trazar-ruta").click(function() {
-        // Obtiene los datos de la base de datos
-        console.log("Antes del ajax");
-        $.ajax({
-            type: "GET",
-            url: "rango.php",
-            dataType: "json",
-            success: function(dataRango) {
-                console.log(dataRango);
-                drawRoute(dataRango);
-            }
-        });
+        // Obtiene los valores de fecha y hora inmediatamente
+        var fechaInicio = $("#fechaInicio").datetimepicker("getDate");
+        var fechaFinal = $("#fechaFinal").datetimepicker("getDate");
+
+        // Verifica que las fechas sean válidas
+        if (fechaInicio && fechaFinal) {
+            // Realiza la solicitud AJAX inmediatamente
+            $.ajax({
+                type: "GET",
+                url: "rango.php",
+                dataType: "json",
+                data: {
+                    fechaInicio: fechaInicio,
+                    fechaFinal: fechaFinal
+                },
+                success: function(dataRango) {
+                    // Procesa los datos y traza la ruta
+                    drawRoute(dataRango);
+                },
+            });
+        } else {
+            alert("Por favor, selecciona fechas y horas válidas.");
+        }
     });
     // Obtiene los datos inicialmente
     fetchData();

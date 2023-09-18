@@ -23,7 +23,9 @@ $(document).ready(function() {
 
     // Obtiene las fechas de inicio y finalización
     var fechaInicio = $("#fechaInicio").datetimepicker("getDate");
+    console.log(fechaInicio);
     var fechaFinal = $("#fechaFinal").datetimepicker("getDate");
+    console.log(fechaFinal);
 
 
     // Crea un nuevo objeto de mapa

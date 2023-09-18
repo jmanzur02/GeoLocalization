@@ -94,8 +94,8 @@ $(document).ready(function() {
     }
 
      // Función para trazar la ruta
-     function drawRoute(dataRango) {
-        // Verifica que los datos sean válidos
+    function drawRoute(dataRango) {
+    // Verifica que los datos sean válidos
         if (dataRango.length >= 2) {
             // Crea un objeto de línea
             var line = new google.maps.Polyline({
@@ -124,8 +124,8 @@ $(document).ready(function() {
             type: "GET",
             url: "rango.php",
             dataType: "json",
-            success: function(data) {
-                drawRoute(data);
+            success: function(dataRango) {
+                drawRoute(dataRango);
             }
         });
     });

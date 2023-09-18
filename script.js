@@ -120,6 +120,7 @@ $(document).ready(function() {
     // Llama a la función para trazar la ruta cuando se haga clic en un botón
     $("#trazar-ruta").click(function() {
         // Obtiene los datos de la base de datos
+        console.log("Antes del ajax");
         $.ajax({
             type: "GET",
             url: "rango.php",

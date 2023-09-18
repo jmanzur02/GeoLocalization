@@ -102,9 +102,9 @@ $(document).ready(function() {
             // Crea un objeto de línea
             var line = new google.maps.Polyline({
                 path: [],
-                strokeColor: $("#color").val(), // Color de la línea
-                strokeOpacity: $("#opacidad").val(), // Opacidad de la línea
-                strokeWeight: $("#grosor").val(), // Grosor de la línea
+                strokeColor: "#0000FF" , // Color de la línea
+                strokeOpacity: 0.8, // Opacidad de la línea
+                strokeWeight: 5, // Grosor de la línea
             });
 
             // Agrega los puntos de la línea al objeto de línea

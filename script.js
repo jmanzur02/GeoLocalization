@@ -22,22 +22,28 @@ $(document).ready(function() {
 
     var fechaInicio;
     var fechaFinal;
+    var horaInicial;
+    var horaFinal;
 
     // Establece los eventos de cambio para actualizar las variables de fecha
     $("#fechaInicio").on("change", function() {
         fechaInicio = $("#fechaInicio").datetimepicker("getDate");
+        console.log(fechaInicio);
     });
 
     $("#fechaFinal").on("change", function() {
         fechaFinal = $("#fechaFinal").datetimepicker("getDate");
+        console.log(fechaFinal);
     });
 
     $("#horaInicial").on("change", function() {
         horaInicial = $("#horaInicial").timepicker("getTime");
+        console.log(horaInicial);
     });
 
     $("#horaFinal").on("change", function() {
         horaFinal = $("#horaFinal").timepicker("getTime");
+        console.log(horaFinal);
     });
 
     // Crea un nuevo objeto de mapa

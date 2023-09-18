@@ -6,8 +6,9 @@ $(document).ready(function() {
     });
 
     $("#horaInicial, #horaFinal").timepicker({
-        timeFormat: "HH:mm:ss",
-        showSecond: true
+        timeFormat: "HH:mm",
+        showSecond: true,
+        controlType: 'select'
     });
     
 

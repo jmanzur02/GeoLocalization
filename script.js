@@ -1,15 +1,13 @@
 $(document).ready(function() {
-    $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
-
-    $("#fechaInicio, #fechaFinal").datetimepicker({
-        dateFormat: "yy-mm-dd",
-        timeFormat: "HH:mm:ss",
-        showSecond: true,
-        showMillisec: false,
-        timeInput: true
-        
+    
+    $("#fechaInicio, #fechaFinal").datepicker({
+        dateFormat: "yy-mm-dd"
     });
 
+    $("#horaInicial, #horaFinal").timepicker({
+        timeFormat: "HH:mm:ss",
+        showSecond: true
+    });
     
 
 

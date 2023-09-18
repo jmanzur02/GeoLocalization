@@ -140,7 +140,7 @@ $(document).ready(function() {
         if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
             // Realiza la solicitud AJAX inmediatamente
             $.ajax({
-                type: "POST", // Cambiado a POST
+                type: "GET", 
                 url: "rango.php",
                 dataType: "json",
                 data: {

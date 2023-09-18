@@ -5,47 +5,38 @@ $dbUser = 'manzur';
 $dbPass = 'JuanD0212_2003';
 $dbName = 'basededatos';
 
-// Validate and sanitize input
-$fechaInicio = $_POST['fechaInicio'];
-$fechaFinal = $_POST['fechaFinal'];
+// Obtén las fechas de inicio y finalización desde el cliente
+$fechaInicio = $_GET['fechaInicio'];
+$fechaFinal = $_GET['fechaFinal'];
 
-// Validate date format (adjust this format if needed)
+// Validación de formato de fecha (ajusta el formato según tus datos)
 if (!strtotime($fechaInicio) || !strtotime($fechaFinal)) {
-    die("Invalid date format provided.");
+    die("Formato de fecha inválido. Asegúrate de que esté en el formato correcto.");
 }
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Error de conexión: " . $conn->connect_error);
 }
 
-$sqlRango = "SELECT Latitud, Longitud FROM posicion WHERE Timestamp >= '?' AND Timestamp <= '?'";
-$stmt = $conn->prepare($sqlRango);
 
-// Bind parameters
-$stmt->bind_param("ss", $fechaInicio, $fechaFinal);
+$sqlRango = "SELECT Latitud, Longitud FROM posicion WHERE Timestamp >= '$fechaInicio' AND Timestamp <= '$fechaFinal'";
+$resultRango = $conn->query($sqlRango);
 
-// Execute the query
-if ($stmt->execute()) {
-    $resultRango = $stmt->get_result();
-
-    $dataRango = [];
+$dataRango = [];
+if ($resultRango->num_rows > 0) {
     while ($row = $resultRango->fetch_assoc()) {
         $dataRango[] = [
             'Latitud' => $row['Latitud'],
             'Longitud' => $row['Longitud']
         ];
     }
-
-    // Close the database connection
-    $stmt->close();
-    $conn->close();
-
-    // Return data as JSON
-    header('Content-Type: application/json');
-    echo json_encode($dataRango);
-} else {
-    // Handle query execution error
-    echo "Error executing the query: " . $stmt->error;
 }
+
+// Cierra la conexión a la base de datos
+$conn->close();
+
+// Devuelve los datos como JSON
+header('Content-Type: application/json');
+echo json_encode($dataRango);
 ?>

@@ -80,29 +80,7 @@ $(document).ready(function() {
         });
     }
 
-     // Función para trazar la ruta
-    function drawRoute(dataRango) {
-    // Verifica que los datos sean válidos
-        if (dataRango.length >= 2) {
-            // Crea un objeto de línea
-            var line = new google.maps.Polyline({
-                path: [],
-                strokeColor: "#0000FF" , // Color de la línea
-                strokeOpacity: 0.8, // Opacidad de la línea
-                strokeWeight: 5, // Grosor de la línea
-            });
-
-            // Agrega los puntos de la línea al objeto de línea
-            for (var i = 0; i < dataRango.length; i++) {
-                line.getPath().push(new google.maps.LatLng(dataRango[i].Latitud, dataRango[i].Longitud));
-            }
-
-            // Agrega la línea al mapa
-            line.setMap(map);
-        } else {
-            alert("No hay suficientes datos para trazar la ruta.");
-        }
-    }
+     
 
     // Función para trazar la ruta
     function drawRoute(dataRango) {

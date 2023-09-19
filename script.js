@@ -109,9 +109,9 @@ $(document).ready(function() {
     // Llama a la función para trazar la ruta cuando se haga clic en un botón
     $("#trazar-ruta").click(function() {
         // Obtiene los valores de fecha y hora inmediatamente
-        var fechaInicio = new Date($("#fechaInicio").val());
+        var fechaInicio = $("#fechaInicio").val();
         console.log(fechaInicio);
-        var fechaFinal = new Date ($("#fechaFinal").val());
+        var fechaFinal = $("#fechaFinal").val();
         console.log(fechaFinal);
        // var horaInicial = $("#horaInicial").val();
         //var horaFinal = $("#horaFinal").val();

@@ -25,10 +25,10 @@
         <input type="text" id="fechaFinal" name="fechaFinal" />
 
         <label for="horaInicial">Hora Inicial:</label>
-        <input type="text" id="horaInicial" name="horaInicial" />
+        <input type="time" id="horaInicial" name="horaInicial" />
         
         <label for="horaFinal">Hora Final:</label>
-        <input type="text" id="horaFinal" name="horaFinal" />
+        <input type="time" id="horaFinal" name="horaFinal" />
         
         <button id="trazar-ruta">Trazar ruta</button>
         <button id="borrar-trazado">Borrar histórico</button>

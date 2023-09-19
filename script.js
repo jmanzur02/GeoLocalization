@@ -85,6 +85,7 @@ $(document).ready(function() {
     // Función para trazar la ruta
     function drawRoute(dataRango) {
         // Verifica que los datos sean válidos
+        console.log("Los parámetros recibidos son: " + JSON.stringify(dataRango));
         if (dataRango.length >= 2) {
             // Crea un objeto de línea
             var line = new google.maps.Polyline({

@@ -110,7 +110,9 @@ $(document).ready(function() {
     $("#trazar-ruta").click(function() {
         // Obtiene los valores de fecha y hora inmediatamente
         var fechaInicio = new Date($("#fechaInicio").val());
+        console.log(fechaInicio);
         var fechaFinal = new Date ($("#fechaFinal").val());
+        console.log(fechaFinal);
        // var horaInicial = $("#horaInicial").val();
         //var horaFinal = $("#horaFinal").val();
 

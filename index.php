@@ -24,11 +24,11 @@
         <label for="fechaFinal">Fecha Final:</label>
         <input type="text" id="fechaFinal" name="fechaFinal" />
 
-        <label for="horaInicial">Hora Inicial:</label>
+        <!--<label for="horaInicial">Hora Inicial:</label>
         <input type="text" id="horaInicial" name="horaInicial" />
         
         <label for="horaFinal">Hora Final:</label>
-        <input type="text" id="horaFinal" name="horaFinal" />
+        <input type="text" id="horaFinal" name="horaFinal" />-->
         
         <button id="trazar-ruta">Trazar ruta</button>
         <div id="map"></div>

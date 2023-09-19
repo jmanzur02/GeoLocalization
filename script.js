@@ -5,11 +5,11 @@ $(document).ready(function() {
         dateFormat: "yy-mm-dd"
     });
 
-    $("#horaInicial, #horaFinal").timepicker({
-        timeFormat: "HH:mm",
-        showSecond: true,
-        controlType: 'select'
-    });
+   // $("#horaInicial, #horaFinal").timepicker({
+     //   timeFormat: "HH:mm",
+       // showSecond: true,
+        //controlType: 'select'
+    //});
     
 
 
@@ -109,13 +109,13 @@ $(document).ready(function() {
     // Llama a la función para trazar la ruta cuando se haga clic en un botón
     $("#trazar-ruta").click(function() {
         // Obtiene los valores de fecha y hora inmediatamente
-        var fechaInicio = $("#fechaInicio").val();
-        var fechaFinal = $("#fechaFinal").val();
-        var horaInicial = $("#horaInicial").val();
-        var horaFinal = $("#horaFinal").val();
+        var fechaInicio = new Date($("#fechaInicio").val());
+        var fechaFinal = new Date ($("#fechaFinal").val());
+       // var horaInicial = $("#horaInicial").val();
+        //var horaFinal = $("#horaFinal").val();
 
         // Verifica que las fechas sean válidas
-        if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
+        if (fechaInicio && fechaFinal) {
             // Realiza la solicitud AJAX inmediatamente
             $.ajax({
                 type: "GET", 

@@ -120,6 +120,7 @@ $(document).ready(function() {
         // Verifica que las fechas sean válidas
         if (fechaInicio && fechaFinal) {
             // Realiza la solicitud AJAX inmediatamente
+            console.log("realizado");
             $.ajax({
                 type: "GET", 
                 url: "rango.php",

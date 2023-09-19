@@ -1,9 +1,6 @@
 <?php
 // Database connection
-$dbHost = 'host';
-$dbUser = 'user';
-$dbPass = 'password';
-$dbName = 'database';
+include("db_credentials.php");
 
 // Obtén las fechas de inicio y finalización desde el cliente
 $fechaInicio = $_GET['fechaInicio'];

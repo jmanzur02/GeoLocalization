@@ -5,11 +5,11 @@ $(document).ready(function() {
         dateFormat: "yy-mm-dd"
     });
 
-   // $("#horaInicial, #horaFinal").timepicker({
-     //   timeFormat: "HH:mm",
-       // showSecond: true,
-        //controlType: 'select'
-    //});
+    $("#horaInicial, #horaFinal").timepicker({
+        timeFormat: "HH:mm",
+        showSecond: true,
+        controlType: 'select'
+    });
     
 
 
@@ -119,8 +119,11 @@ $(document).ready(function() {
         console.log(fechaInicio);
         var fechaFinal = $("#fechaFinal").val();
         console.log(fechaFinal);
-       // var horaInicial = $("#horaInicial").val();
-        //var horaFinal = $("#horaFinal").val();
+        var horaInicial = $("#horaInicial").val();
+        console.log(horaInicial);
+
+        var horaFinal = $("#horaFinal").val();
+        console.log(horaFinal);
 
         // Verifica que las fechas sean válidas
         if (fechaInicio && fechaFinal) {

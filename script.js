@@ -102,6 +102,11 @@ $(document).ready(function() {
 
             // Agrega la línea al mapa
             line.setMap(map);
+
+            $("#borrar-trazado").click(function() {
+                // Elimina la línea del mapa
+                line.setMap(null);
+            });
         } else {
             alert("No hay suficientes datos para trazar la ruta.");
         }

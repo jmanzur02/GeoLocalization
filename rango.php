@@ -8,6 +8,9 @@ $dbName = 'basededatos';
 // Obtén las fechas de inicio y finalización desde el cliente
 $fechaInicio = $_GET['fechaInicio'];
 $fechaFinal = $_GET['fechaFinal'];
+$horaInicial = $_GET['horaInicial'];
+$horaFinal = $_GET['horaFinal'];
+
 
 
 
@@ -17,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 
-$sqlRango = "SELECT Latitud, Longitud FROM posicion WHERE Timestamp >= '$fechaInicio' AND Timestamp <= '$fechaFinal'";
+$sqlRango = "SELECT Latitud, Longitud FROM posicion WHERE Timestamp >= '$fechaInicio $horaInicial' AND Timestamp <= '$fechaFinal $horaFinal'";
 $resultRango = $conn->query($sqlRango);
 
 $dataRango = [];

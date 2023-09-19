@@ -126,7 +126,7 @@ $(document).ready(function() {
         console.log(horaFinal);
 
         // Verifica que las fechas sean válidas
-        if (fechaInicio && fechaFinal) {
+        if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
             // Realiza la solicitud AJAX inmediatamente
             console.log("realizado");
             $.ajax({
@@ -136,8 +136,8 @@ $(document).ready(function() {
                 data: {
                     fechaInicio: fechaInicio,
                     fechaFinal: fechaFinal,
-                    //horaInicial: horaInicial,
-                    //horaFinal: horaFinal
+                    horaInicial: horaInicial,
+                    horaFinal: horaFinal
                 },
                 success: function(dataRango) {
                     // Procesa los datos y traza la ruta

@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tiempo real</h1>
+        <h1>Tiempo real 2</h1>
         <div class="data-container" id="dataContainer">
             <!-- Data will be dynamically inserted here -->
         </div>

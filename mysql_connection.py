@@ -47,7 +47,7 @@ while True:
 
         # Insertar datos en la base de datos
         if latitud is not None and longitud is not None and timestamp is not None:
-            insert_query = "INSERT INTO db_table (Latitud, Longitud, Timestamp) VALUES (%s, %s, FROM_UNIXTIME(%s))"
+            insert_query = "INSERT INTO posicion (Latitud, Longitud, Timestamp) VALUES (%s, %s, FROM_UNIXTIME(%s))"
             db_cursor.execute(insert_query, (latitud, longitud,timestamp))
             db_connection.commit()
             print("Dato insertado en la base de datos:", latitud, longitud, timestamp)

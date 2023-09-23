@@ -25,6 +25,29 @@ $(document).ready(function() {
         map: map,
     });
 
+    map.addListener("click", function(event) {
+        // Obtiene la latitud y longitud del punto
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+
+        // Obtiene el margen de error
+        var margenError = 0.01;
+
+        // Obtiene el área alrededor del punto
+        var bounds = google.maps.geometry.spherical.getBounds(lat, lng, margenError);
+
+        // Obtiene la latitud y longitud del punto central
+        var latitud = bounds.center.lat();
+        var longitud = bounds.center.lng();
+
+        // Guarda la latitud y longitud en dos variables
+        var latitud = latitud;
+        var longitud = longitud;
+
+        // Agrega un mensaje de confirmación
+        alert("La latitud es " + latitud + " y la longitud es " + longitud + ".");
+    });
+
    
     function fetchData() {
         $.ajax({

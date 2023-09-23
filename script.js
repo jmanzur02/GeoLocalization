@@ -30,8 +30,8 @@ $(document).ready(function() {
         var clickedLatLng = event.latLng;
         
         // Guarda las coordenadas en variables con un margen de error (por ejemplo, 0.001 grados)
-        var latitud = clickedLatLng.lat() + 0.001;
-        var longitud = clickedLatLng.lng() + 0.001;
+        var latitud = clickedLatLng.lat() + 0.1;
+        var longitud = clickedLatLng.lng() + 0.1;
     
         // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
         console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
@@ -162,6 +162,30 @@ $(document).ready(function() {
             alert("Por favor, selecciona fechas y horas válidas.");
         }
     });
+
+
+    $("#consulta").click(function() {
+            $.ajax({
+                type: "GET", 
+                url: "latlong.php",
+                dataType: "json",
+                data: {
+                    latitud: latitud,
+                    longitud: longitud,
+                    fechaInicio: fechaInicio,
+                    fechaFinal: fechaFinal,
+                    horaInicial: horaInicial,
+                    horaFinal: horaFinal
+                },
+                success: function(latlong) {
+                    // Procesa los datos y traza la ruta
+                    console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
+                },
+            });
+
+    });
+
+    
 
     // Obtiene los datos inicialmente
     fetchData();

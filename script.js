@@ -10,6 +10,9 @@ $(document).ready(function() {
         showSecond: true,
         controlType: 'select'
     });
+
+    var latitud = $("#inputLatitud").val();
+    var longitud = $("#inputLongitud").val();
     
 
 

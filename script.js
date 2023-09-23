@@ -25,27 +25,18 @@ $(document).ready(function() {
         map: map,
     });
 
-    map.addListener("click", function(event) {
-        // Obtiene la latitud y longitud del punto
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-
-        // Obtiene el margen de error
-        var margenError = 0.01;
-
-        // Obtiene el área alrededor del punto
-        var bounds = google.maps.geometry.spherical.getBounds(lat, lng, margenError);
-
-        // Obtiene la latitud y longitud del punto central
-        var latitud = bounds.center.lat();
-        var longitud = bounds.center.lng();
-
-        // Guarda la latitud y longitud en dos variables
-        var latitud = latitud;
-        var longitud = longitud;
-
-        // Agrega un mensaje de confirmación
-        alert("La latitud es " + latitud + " y la longitud es " + longitud + ".");
+    google.maps.event.addListener(map, 'click', function(event) {
+        // Obtén las coordenadas (latitud y longitud) del punto clicado
+        var clickedLatLng = event.latLng;
+        
+        // Guarda las coordenadas en variables con un margen de error (por ejemplo, 0.001 grados)
+        var latitud = clickedLatLng.lat() + 0.001;
+        var longitud = clickedLatLng.lng() + 0.001;
+    
+        // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
+        console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
+        
+        // Aquí puedes realizar otras acciones con las coordenadas, como enviarlas al servidor o mostrarlas en la página.
     });
 
    

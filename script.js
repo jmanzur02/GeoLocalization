@@ -12,10 +12,6 @@ $j(document).ready(function() {
         controlType: 'select'
     });
 
-    var latitud, longitud;
-    
-
-
     // Crea un nuevo objeto de mapa
     var map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },
@@ -38,6 +34,25 @@ $j(document).ready(function() {
     
         // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
         console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
+
+
+        $.ajax({
+                type: "GET", 
+                url: "latlong.php",
+                dataType: "json",
+                data: {
+                    latitud: latitud,
+                    longitud: longitud,
+                    fechaInicio: fechaInicio,
+                    fechaFinal: fechaFinal,
+                    horaInicial: horaInicial,
+                    horaFinal: horaFinal
+                },
+                success: function(latlong) {
+                    // Procesa los datos y traza la ruta
+                    console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
+                },
+            });
         
         // Aquí puedes realizar otras acciones con las coordenadas, como enviarlas al servidor o mostrarlas en la página.
     });
@@ -165,29 +180,6 @@ $j(document).ready(function() {
             alert("Por favor, selecciona fechas y horas válidas.");
         }
     });
-
-
-    $("#consulta").click(function() {
-            $.ajax({
-                type: "GET", 
-                url: "latlong.php",
-                dataType: "json",
-                data: {
-                    latitud: latitud,
-                    longitud: longitud,
-                    fechaInicio: fechaInicio,
-                    fechaFinal: fechaFinal,
-                    horaInicial: horaInicial,
-                    horaFinal: horaFinal
-                },
-                success: function(latlong) {
-                    // Procesa los datos y traza la ruta
-                    console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
-                },
-            });
-
-    });
-
     
 
     // Obtiene los datos inicialmente

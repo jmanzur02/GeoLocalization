@@ -1,4 +1,5 @@
 var $j = jQuery.noConflict();
+var fechaInicio, fechaFinal, horaInicial, horaFinal;
 $j(document).ready(function() {
     $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
 

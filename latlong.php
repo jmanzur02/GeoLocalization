@@ -20,8 +20,8 @@ $horaInicial = $_GET['horaInicial'];
 $horaFinal = $_GET['horaFinal'];
 
 // Consulta SQL para obtener las fechas y horas en las que el vehículo pasó por las coordenadas
-$sql = "SELECT Timestamp FROM posicion WHERE Latitud = $latitud AND Longitud = $longitud
-        AND Timestamp BETWEEN '$fechaInicio' '$horaInicial' AND '$fechaFinal' '$horaFinal'";
+$sql = "SELECT 'Timestamp' FROM posicion WHERE Latitud = $latitud AND Longitud = $longitud
+        AND Timestamp BETWEEN '$fechaInicio $horaInicial' AND '$fechaFinal $horaFinal'";
 
 $result = $conn->query($sql);
 

@@ -8,16 +8,16 @@ $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
-
+if (!is_numeric($_GET['latitud']) || !is_numeric($_GET['longitud'])) {
+    console.log("Las coordenadas no son válidas");
+    console.log("Latitud: " . $_GET['latitud']);
+    console.log("Longitud: " . $_GET['longitud']);
+    return;
+}
 // Obtener las coordenadas del punto seleccionado desde la solicitud GET
 $latitud = $_GET['latitud'];
 $longitud = $_GET['longitud'];
-if (!is_numeric($latitud) || !is_numeric($longitud)) {
-    console.log("Las coordenadas no son válidas");
-    return;
-}else{
-    console.log("Son validas");
-}
+
 
 // Obtener las fechas y horas desde la solicitud GET
 $fechaInicio = $_GET['fechaInicio'];

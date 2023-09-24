@@ -11,8 +11,7 @@ $(document).ready(function() {
         controlType: 'select'
     });
 
-    var latitud = $("#inputLatitud").val();
-    var longitud = $("#inputLongitud").val();
+    var latitud, longitud;
     
 
 

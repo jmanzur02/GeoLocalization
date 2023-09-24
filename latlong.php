@@ -12,6 +12,12 @@ if ($conn->connect_error) {
 // Obtener las coordenadas del punto seleccionado desde la solicitud GET
 $latitud = $_GET['latitud'];
 $longitud = $_GET['longitud'];
+if (!is_numeric($latitud) || !is_numeric($longitud)) {
+    console.log("Las coordenadas no son válidas");
+    return;
+}else{
+    console.log("Son validas");
+}
 
 // Obtener las fechas y horas desde la solicitud GET
 $fechaInicio = $_GET['fechaInicio'];

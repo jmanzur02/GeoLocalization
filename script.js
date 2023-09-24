@@ -37,12 +37,6 @@ $(document).ready(function() {
         // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
         console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
 
-        if (!is_numeric(latitud) || !is_numeric(longitud)) {
-            console.log("Las coordenadas no son válidas");
-            return;
-        }else{
-            console.log("Son validas");
-        }
 
 
         $.ajax({

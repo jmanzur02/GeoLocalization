@@ -30,8 +30,9 @@ $j(document).ready(function() {
         var clickedLatLng = event.latLng;
         
         // Guarda las coordenadas en variables con un margen de error (por ejemplo, 0.001 grados)
-        var latitud = clickedLatLng.lat() + 0.001;
-        var longitud = clickedLatLng.lng() + 0.001;
+        var meters = 200; // Cambia esto si deseas un radio diferente
+        var latitud = clickedLatLng.lat() + (meters / (111.32 * 1000));
+        var longitud = clickedLatLng.lng() + (meters / (111.32 * 1000));
     
         // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
         console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);

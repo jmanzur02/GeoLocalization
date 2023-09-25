@@ -37,30 +37,33 @@ $(document).ready(function() {
         // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
         console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
 
+        if (latitud && longitud && fechaInicio && fechaFinal && horaInicial && horaFinal){
+            $.ajax({
+                type: "GET", 
+                url: "latlong.php",
+                dataType: "json",
+                data: {
+                    latitud: latitud,
+                    longitud: longitud,
+                    fechaInicio: fechaInicio,
+                    fechaFinal: fechaFinal,
+                    horaInicial: horaInicial,
+                    horaFinal: horaFinal
+                },
+                success: function(latlong) {
+                    // Procesa los datos y traza la ruta
+                    console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // Esta función se ejecutará si ocurre un error en la solicitud AJAX
+                    console.log("Error en la solicitud AJAX: " + textStatus + " - " + errorThrown);
+                    // Puedes mostrar un mensaje de error o realizar otras acciones de manejo de errores aquí
+                }
+            });
 
-
-        $.ajax({
-            type: "GET", 
-            url: "latlong.php",
-            dataType: "json",
-            data: {
-                latitud: latitud,
-                longitud: longitud,
-                fechaInicio: fechaInicio,
-                fechaFinal: fechaFinal,
-                horaInicial: horaInicial,
-                horaFinal: horaFinal
-            },
-            success: function(latlong) {
-                // Procesa los datos y traza la ruta
-                console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                // Esta función se ejecutará si ocurre un error en la solicitud AJAX
-                console.log("Error en la solicitud AJAX: " + textStatus + " - " + errorThrown);
-                // Puedes mostrar un mensaje de error o realizar otras acciones de manejo de errores aquí
-            }
-        });
+        }else{
+            alert("Por favor, selecciona latitud y longitud, fechas y horas válidas.");
+        }
         
         // Aquí puedes realizar otras acciones con las coordenadas, como enviarlas al servidor o mostrarlas en la página.
     });

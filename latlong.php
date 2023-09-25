@@ -40,7 +40,7 @@ $min_longitud = $longitud - $longitud_diff;
 $max_longitud = $longitud + $longitud_diff;
 
 // Consulta SQL para obtener las fechas y horas en las que el vehículo pasó por las coordenadas dentro del radio especificado
-$sql_lat = "SELECT 'Timestamp' FROM posicion WHERE Latitud BETWEEN $min_latitud AND $max_latitud AND Longitud BETWEEN $min_longitud AND $max_longitud AND Timestamp BETWEEN '$fechaInicio $horaInicial' AND '$fechaFinal $horaFinal'";
+$sql_lat = "SELECT Timestamp FROM posicion WHERE Latitud BETWEEN $min_latitud AND $max_latitud AND Longitud BETWEEN $min_longitud AND $max_longitud AND Timestamp BETWEEN '$fechaInicio $horaInicial' AND '$fechaFinal $horaFinal'";
 
 $result_lat = $conn->query($sql_lat);
 

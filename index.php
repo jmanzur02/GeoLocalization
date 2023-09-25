@@ -16,9 +16,7 @@
 <body>
     <div class="container">
         <h1>Coordenadas en tiempo real</h1>
-        <div class="data-container" id="dataContainer">
-            <!-- Data will be dynamically inserted here -->
-        </div>
+        
         <label for="fechaInicio">Fecha de Inicio:</label>
         <input type="text" id="fechaInicio" name="fechaInicio" />
         

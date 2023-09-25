@@ -62,6 +62,15 @@ $(document).ready(function() {
                 success: function(latlong) {
                     // Procesa los datos y traza la ruta
                     console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
+                    openModal();
+                    var dateList = document.getElementById("date-time-list");
+                    dateList.innerHTML = ""; // Limpia la lista antes de agregar nuevos elementos
+
+                    for (var i = 0; i < latlong.length; i++) {
+                        var listItem = document.createElement("li");
+                        listItem.textContent = latlong[i].Timestamp;
+                        dateList.appendChild(listItem);
+                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Esta función se ejecutará si ocurre un error en la solicitud AJAX
@@ -76,6 +85,19 @@ $(document).ready(function() {
         
         // Aquí puedes realizar otras acciones con las coordenadas, como enviarlas al servidor o mostrarlas en la página.
     });
+
+    function openModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    var closeBtn = document.getElementsByClassName("close")[0];
+    closeBtn.addEventListener("click", closeModal);
 
    
     function fetchData() {

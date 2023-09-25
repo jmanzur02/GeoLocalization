@@ -36,6 +36,15 @@
         <button id="consulta">Consultar fechas</button>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Fechas y Horas Seleccionadas</h2>
+                <ul id="date-time-list">
+                    <!-- Aquí se mostrarán las fechas y horas -->
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

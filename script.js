@@ -36,6 +36,15 @@ $(document).ready(function() {
     
         // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
         console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
+        var fechaInicio = $("#fechaInicio").val();
+        console.log(fechaInicio);
+        var fechaFinal = $("#fechaFinal").val();
+        console.log(fechaFinal);
+        var horaInicial = $("#horaInicial").val();
+        console.log(horaInicial);
+
+        var horaFinal = $("#horaFinal").val();
+        console.log(horaFinal);
 
         if (latitud && longitud && fechaInicio && fechaFinal && horaInicial && horaFinal){
             $.ajax({

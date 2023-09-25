@@ -31,7 +31,6 @@
         
         <button id="trazar-ruta">Trazar ruta</button>
         <button id="borrar-trazado">Borrar histórico</button>
-        <button id="consulta">Consultar fechas</button>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
         <div id="myModal" class="modal">

@@ -39,7 +39,7 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>Fechas y Horas Seleccionadas</h2>
+                <h2>¿Cuándo pasó el vehículo por el lugar seleccionado?</h2>
                 <ul id="date-time-list">
                     <!-- Aquí se mostrarán las fechas y horas -->
                 </ul>

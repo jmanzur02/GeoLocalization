@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Coordenadas en tiempo</h1>
+        <h1>Coordenadas en tiempo real</h1>
         
         <label for="fechaInicio">Fecha de Inicio:</label>
         <input type="text" id="fechaInicio" name="fechaInicio" />

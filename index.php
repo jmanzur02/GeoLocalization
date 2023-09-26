@@ -11,13 +11,12 @@
         }
     </style>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <div class="container">
-        <h1>Tiempo real 2</h1>
-        <div class="data-container" id="dataContainer">
-            <!-- Data will be dynamically inserted here -->
-        </div>
+        <h1>Coordenadas en tiempo real</h1>
+        
         <label for="fechaInicio">Fecha de Inicio:</label>
         <input type="text" id="fechaInicio" name="fechaInicio" />
         
@@ -34,6 +33,15 @@
         <button id="borrar-trazado">Borrar histórico</button>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>¿Cuándo pasó el vehículo por el lugar seleccionado?</h2>
+                <ul id="date-time-list">
+                    <!-- Aquí se mostrarán las fechas y horas -->
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

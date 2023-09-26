@@ -1,3 +1,5 @@
+
+var fechaInicio, fechaFinal, horaInicial, horaFinal;
 $(document).ready(function() {
     $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
 
@@ -10,8 +12,6 @@ $(document).ready(function() {
         showSecond: true,
         controlType: 'select'
     });
-    
-
 
     // Crea un nuevo objeto de mapa
     var map = new google.maps.Map(document.getElementById("map"), {
@@ -24,6 +24,80 @@ $(document).ready(function() {
         position: { lat: 0, lng: 0 },
         map: map,
     });
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        // Obtén las coordenadas (latitud y longitud) del punto clicado
+        var clickedLatLng = event.latLng;
+        
+        // Guarda las coordenadas en variables con un margen de error (por ejemplo, 0.001 grados)
+        var meters = 200; // Cambia esto si deseas un radio diferente
+        var latitud = clickedLatLng.lat();
+        var longitud = clickedLatLng.lng();
+    
+        // Puedes mostrar las coordenadas en algún lugar de tu página o realizar otras acciones con ellas
+        console.log('Latitud: ' + latitud + ', Longitud: ' + longitud);
+        var fechaInicio = $("#fechaInicio").val();
+        console.log(fechaInicio);
+        var fechaFinal = $("#fechaFinal").val();
+        console.log(fechaFinal);
+        var horaInicial = $("#horaInicial").val();
+        console.log(horaInicial);
+
+        var horaFinal = $("#horaFinal").val();
+        console.log(horaFinal);
+
+        if (latitud && longitud && fechaInicio && fechaFinal && horaInicial && horaFinal){
+            $.ajax({
+                type: "GET", 
+                url: "latlong.php",
+                dataType: "json",
+                data: {
+                    latitud: latitud,
+                    longitud: longitud,
+                    fechaInicio: fechaInicio,
+                    fechaFinal: fechaFinal,
+                    horaInicial: horaInicial,
+                    horaFinal: horaFinal
+                },
+                success: function(latlong) {
+                    // Procesa los datos y traza la ruta
+                    console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
+                    openModal();
+                    var dateList = document.getElementById("date-time-list");
+                    dateList.innerHTML = ""; // Limpia la lista antes de agregar nuevos elementos
+
+                    for (var i = 0; i < latlong.length; i++) {
+                        var listItem = document.createElement("li");
+                        listItem.textContent = latlong[i].Timestamp;
+                        dateList.appendChild(listItem);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // Esta función se ejecutará si ocurre un error en la solicitud AJAX
+                    console.log("Error en la solicitud AJAX: " + textStatus + " - " + errorThrown);
+                    // Puedes mostrar un mensaje de error o realizar otras acciones de manejo de errores aquí
+                }
+            });
+
+        }else{
+            alert("Por favor, selecciona latitud y longitud, fechas y horas válidas.");
+        }
+        
+        // Aquí puedes realizar otras acciones con las coordenadas, como enviarlas al servidor o mostrarlas en la página.
+    });
+
+    function openModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    var closeBtn = document.getElementsByClassName("close")[0];
+    closeBtn.addEventListener("click", closeModal);
 
    
     function fetchData() {
@@ -127,27 +201,56 @@ $(document).ready(function() {
 
         // Verifica que las fechas sean válidas
         if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
-            // Realiza la solicitud AJAX inmediatamente
-            console.log("realizado");
-            $.ajax({
-                type: "GET", 
-                url: "rango.php",
-                dataType: "json",
-                data: {
-                    fechaInicio: fechaInicio,
-                    fechaFinal: fechaFinal,
-                    horaInicial: horaInicial,
-                    horaFinal: horaFinal
-                },
-                success: function(dataRango) {
-                    // Procesa los datos y traza la ruta
-                    drawRoute(dataRango);
-                },
-            });
+            if ((fechaInicio == fechaFinal) && (horaInicial<horaFinal)){
+                // Realiza la solicitud AJAX inmediatamente
+                console.log("realizado");
+                $.ajax({
+                    type: "GET", 
+                    url: "rango.php",
+                    dataType: "json",
+                    data: {
+                        fechaInicio: fechaInicio,
+                        fechaFinal: fechaFinal,
+                        horaInicial: horaInicial,
+                        horaFinal: horaFinal
+                    },
+                    success: function(dataRango) {
+                        // Procesa los datos y traza la ruta
+                        drawRoute(dataRango);
+                    },
+                });
+            }
+            if ((fechaInicio == fechaFinal) && (horaInicial>horaFinal)){
+                alert("Si desea buscar registros del mismo día, por favor ingrese horas validas");
+            };
+            if ((fechaInicio>fechaFinal)){
+                alert("Ingrese un rango de fechas válido");
+            }
+            if (fechaInicio<fechaFinal){
+                console.log("realizado");
+                $.ajax({
+                    type: "GET", 
+                    url: "rango.php",
+                    dataType: "json",
+                    data: {
+                        fechaInicio: fechaInicio,
+                        fechaFinal: fechaFinal,
+                        horaInicial: horaInicial,
+                        horaFinal: horaFinal
+                    },
+                    success: function(dataRango) {
+                        // Procesa los datos y traza la ruta
+                        drawRoute(dataRango);
+                    },
+                });
+            }
+
+           
         } else {
             alert("Por favor, selecciona fechas y horas válidas.");
         }
     });
+    
 
     // Obtiene los datos inicialmente
     fetchData();

@@ -201,23 +201,51 @@ $(document).ready(function() {
 
         // Verifica que las fechas sean válidas
         if (fechaInicio && fechaFinal && horaInicial && horaFinal) {
-            // Realiza la solicitud AJAX inmediatamente
-            console.log("realizado");
-            $.ajax({
-                type: "GET", 
-                url: "rango.php",
-                dataType: "json",
-                data: {
-                    fechaInicio: fechaInicio,
-                    fechaFinal: fechaFinal,
-                    horaInicial: horaInicial,
-                    horaFinal: horaFinal
-                },
-                success: function(dataRango) {
-                    // Procesa los datos y traza la ruta
-                    drawRoute(dataRango);
-                },
-            });
+            if ((fechaInicio == fechaFinal) && (horaInicial<horaFinal)){
+                // Realiza la solicitud AJAX inmediatamente
+                console.log("realizado");
+                $.ajax({
+                    type: "GET", 
+                    url: "rango.php",
+                    dataType: "json",
+                    data: {
+                        fechaInicio: fechaInicio,
+                        fechaFinal: fechaFinal,
+                        horaInicial: horaInicial,
+                        horaFinal: horaFinal
+                    },
+                    success: function(dataRango) {
+                        // Procesa los datos y traza la ruta
+                        drawRoute(dataRango);
+                    },
+                });
+            }
+            if ((fechaInicio == fechaFinal) && (horaInicial>horaFinal)){
+                alert("Si desea buscar registros del mismo día, por favor ingrese horas validas");
+            };
+            if ((fechaInicio>fechaFinal)){
+                alert("Ingrese un rango de fechas válido");
+            }
+            if (fechaInicio<fechaFinal){
+                console.log("realizado");
+                $.ajax({
+                    type: "GET", 
+                    url: "rango.php",
+                    dataType: "json",
+                    data: {
+                        fechaInicio: fechaInicio,
+                        fechaFinal: fechaFinal,
+                        horaInicial: horaInicial,
+                        horaFinal: horaFinal
+                    },
+                    success: function(dataRango) {
+                        // Procesa los datos y traza la ruta
+                        drawRoute(dataRango);
+                    },
+                });
+            }
+
+           
         } else {
             alert("Por favor, selecciona fechas y horas válidas.");
         }

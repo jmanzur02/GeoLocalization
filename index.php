@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <h1>Coordenadas en tiempo real</h1>
-        <p> Seleccione el intervalo de tiempo para consultar una ruta específica del vehículo</p> 
+        <p> Seleccione el intervalo de tiempo para consultar una ruta específica del vehículo:</p> 
         <label for="fechaInicio">Fecha de Inicio:</label>
         <input type="text" id="fechaInicio" name="fechaInicio" />
         

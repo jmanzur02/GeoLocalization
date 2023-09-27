@@ -66,11 +66,18 @@ $(document).ready(function() {
                     var dateList = document.getElementById("date-time-list");
                     dateList.innerHTML = ""; // Limpia la lista antes de agregar nuevos elementos
 
-                    for (var i = 0; i < latlong.length; i++) {
-                        var listItem = document.createElement("li");
-                        listItem.textContent = latlong[i].Timestamp;
-                        dateList.appendChild(listItem);
-                    }
+                    if (latlong.length>0){
+                        for (var i = 0; i < latlong.length; i++) {
+                            var listItem = document.createElement("li");
+                            listItem.textContent = latlong[i].Timestamp;
+                            dateList.appendChild(listItem);
+                        }
+
+                    }else{
+                        alert("No se encontró información en la base de datos para el lugar seleccionado");
+                    };
+
+                    
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Esta función se ejecutará si ocurre un error en la solicitud AJAX

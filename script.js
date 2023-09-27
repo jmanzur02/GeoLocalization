@@ -66,7 +66,7 @@ $(document).ready(function() {
                     var dateList = document.getElementById("date-time-list");
                     dateList.innerHTML = ""; // Limpia la lista antes de agregar nuevos elementos
 
-                    if (latlong>0){
+                    if (latlong.length>0){
                         for (var i = 0; i < latlong.length; i++) {
                             var listItem = document.createElement("li");
                             listItem.textContent = latlong[i].Timestamp;

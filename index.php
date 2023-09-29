@@ -14,35 +14,19 @@
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.php">Tiempo real</a></li>
+            <li><a href="index2.php">Consulta de históricos</a></li>
+        </ul>
+    </div>
     <div class="container">
         <h1>Coordenadas en tiempo real</h1>
-        <p> Seleccione el intervalo de tiempo para consultar una ruta específica del vehículo:</p>
-        <p> Pulse en cualquier lugar  del mapa para observar en qué fechas estuvo el vehículo alrededor de esa posición</p>  
-        <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="text" id="fechaInicio" name="fechaInicio" />
         
-        <label for="fechaFinal">Fecha Final:</label>
-        <input type="text" id="fechaFinal" name="fechaFinal" />
-
-        <label for="horaInicial">Hora Inicial:</label>
-        <input type="time" id="horaInicial" name="horaInicial" />
         
-        <label for="horaFinal">Hora Final:</label>
-        <input type="time" id="horaFinal" name="horaFinal" />
-        
-        <button id="trazar-ruta">Trazar ruta</button>
-        <button id="borrar-trazado">Borrar histórico</button>
         <div id="map"></div>
         <button id="borrar-rutas">Borrar rutas</button>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>¿Cuándo pasó el vehículo por el lugar seleccionado?</h2>
-                <ul id="date-time-list">
-                    <!-- Aquí se mostrarán las fechas y horas -->
-                </ul>
-            </div>
-        </div>
+    
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

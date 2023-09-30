@@ -14,14 +14,19 @@
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="index.php">Tiempo real</a></li>
-            <li><a href="index2.php">Consulta de históricos</a></li>
-        </ul>
-    </div>
+    <header>
+        <div class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo de la empresa">
+        </a>
+            <ul>
+                <li><a href="index.php">Tiempo real</a></li>
+                <li><a href="index2.php">Consulta de históricos</a></li>
+            </ul>
+        </div>
+    <header>
     <div class="container">
-        <h1>Coordenadas en tiempo real</h1>
+        <h1>Ubicación en tiempo real</h1>
         
         
         <div id="map"></div>

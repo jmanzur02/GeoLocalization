@@ -65,7 +65,9 @@ $(document).ready(function() {
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.8,
                 strokeWeight: 2,
+            
             });
+            marker.setPosition({lat:latitud,lng:longitud});
             $.ajax({
                 type: "GET", 
                 url: "latlong.php",
@@ -92,11 +94,29 @@ $(document).ready(function() {
                             dateSlider.append(dateItem);
                         }
                         dateSlider.slick({
-                            slidesToShow: 5, // Número de fechas visibles a la vez
-                            slidesToScroll: 1, // Número de fechas para desplazarse
-                            arrows: true, // Flechas de navegación
-                            centerMode: true, // Centrar la fecha seleccionada
-                            focusOnSelect: true // Enfocar la fecha seleccionada
+                            centerMode: true,
+                            centerPadding: '60px',
+                            slidesToShow: 3,
+                            responsive: [
+                                {
+                                breakpoint: 768,
+                                settings: {
+                                    arrows: false,
+                                    centerMode: true,
+                                    centerPadding: '40px',
+                                    slidesToShow: 3
+                                }
+                                },
+                                {
+                                breakpoint: 480,
+                                settings: {
+                                    arrows: false,
+                                    centerMode: true,
+                                    centerPadding: '40px',
+                                    slidesToShow: 1
+                                }
+                                }
+                            ]
                         });
 
                     }else{

@@ -1,132 +1,162 @@
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        margin: 0;
-        padding: 0;
-    }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-    }
+.container {
+    max-width: 100%; /* Ancho al 100% para que ocupe todo el ancho disponible */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
 
-    h1 {
-        text-align: center;
-        color: #333;
-    }
+h1 {
+    text-align: center;
+    color: #333;
+}
 
-    label {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-    }
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
 
-    input[type="text"],
-    input[type="time"],
-    button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
+/* Estilo para los campos de entrada de fecha y hora */
+#fechaInicio,
+#fechaFinal,
+#horaInicial,
+#horaFinal {
+    display: inline-block; /* Hacer que los elementos aparezcan en línea */
+    width: auto; /* Ancho automático para ajustar al contenido */
+    margin-right: 10px; /* Espacio derecho entre los elementos (ajusta según sea necesario) */
+    width: 10%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
 
-    button {
-        background-color: #007bff;
-        color: #fff;
-        cursor: pointer;
-    }
 
-    button:hover {
-        background-color: #0056b3;
-    }
+input[type="text"],
+input[type="time"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
 
-    #map {
-        margin-top: 20px;
-    }
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
 
-    /* Estilos para la data-container */
-    .data-container {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-top: 10px;
-        max-height: 200px;
-        overflow-y: auto;
-    }
+button:hover {
+    background-color: #0056b3;
+}
 
-    #date-slider-container {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-top: 10px;
-        max-height: 200px;
-        overflow-y: auto;
-        background-color: #fff; /* Cambia el fondo al color deseado */
-        border-radius: 5px; /* Añade bordes redondeados si lo deseas */
-    }
-    
-    /* Estilo para el encabezado del slider de fechas */
-    #date-slider-container h2 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-    
-    /* Estilo para el slider de fechas */
-    #date-slider {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-    }
-    
-    /* Estilo para los elementos de fecha en el slider */
-    #date-slider div {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px;
-        margin-right: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    /* Estilo para los elementos de fecha activos en el slider */
-    #date-slider div.slick-center {
-        background-color: #0056b3;
-    }
+#map {
+    height: 600px; /* Ajusta la altura según sea necesario */
+    width: 100%; /* Ancho al 100% para que ocupe todo el ancho disponible */
+}
 
-    /* Estilo para la barra de navegación */
-    .navbar {
-        background-color: #007bff; /* Color de fondo de la barra de navegación */
-        color: #fff; /* Color del texto en la barra de navegación */
-        padding: 10px 0; /* Espaciado interno superior e inferior */
-    }
 
-    /* Estilo para la lista no ordenada (ul) */
-    .navbar ul {
-        list-style-type: none; /* Elimina los puntos de la lista */
-        margin: 0; /* Elimina el margen exterior */
-        padding: 0; /* Elimina el espaciado interno */
-        text-align: center; /* Centra los elementos de la lista horizontalmente */
-    }
+/* Estilos para la data-container */
+.data-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
 
-    /* Estilo para los elementos de la lista (li) */
-    .navbar li {
-        display: inline; /* Muestra los elementos en línea (horizontalmente) */
-        margin: 0 10px; /* Espacio derecho e izquierdo entre elementos */
-    }
+#date-slider-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff; /* Cambia el fondo al color deseado */
+    border-radius: 5px; /* Añade bordes redondeados si lo deseas */
+}
 
-    /* Estilo para los enlaces (a) */
-    .navbar a {
-        text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
-        color: #fff; /* Color del texto de los enlaces */
-        font-weight: bold; /* Texto en negrita */
-        font-size: 16px; /* Tamaño del texto */
-    }
+/* Estilo para el encabezado del slider de fechas */
+#date-slider-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 
-    /* Estilo para los enlaces al pasar el mouse */
-    .navbar a:hover {
-        text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
-    }
+/* Estilo para el slider de fechas */
+#date-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+/* Estilo para los elementos de fecha en el slider */
+#date-slider div {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para los elementos de fecha activos en el slider */
+#date-slider div.slick-center {
+    background-color: #0056b3;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    background-color: #007bff; /* Color de fondo de la barra de navegación */
+    color: #fff; /* Color del texto en la barra de navegación */
+    padding: 10px 0; /* Espaciado interno superior e inferior */
+}
+
+/* Estilo para la lista no ordenada (ul) */
+.navbar ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    margin: 0; /* Elimina el margen exterior */
+    padding: 0; /* Elimina el espaciado interno */
+    text-align: center; /* Centra los elementos de la lista horizontalmente */
+}
+
+/* Estilo para los elementos de la lista (li) */
+.navbar li {
+    display: inline; /* Muestra los elementos en línea (horizontalmente) */
+    margin: 0 10px; /* Espacio derecho e izquierdo entre elementos */
+}
+
+/* Estilo para los enlaces (a) */
+.navbar a {
+    text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
+    color: #fff; /* Color del texto de los enlaces */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+/* Estilo para los enlaces al pasar el mouse */
+.navbar a:hover {
+    text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand img {
+    width: 230px;
+    height: 230px;
+    color: white;
+    display: flex;
+    margin: 0 auto;
+}
+.navbar ul li a.active {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }

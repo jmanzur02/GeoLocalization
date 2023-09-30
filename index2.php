@@ -14,12 +14,17 @@
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="index.php">Tiempo real</a></li>
-            <li><a href="index2.php">Consulta de históricos</a></li>
-        </ul>
-    </div>
+<header>
+        <div class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo de la empresa">
+        </a>
+            <ul>
+                <li><a href="index.php">Tiempo real</a></li>
+                <li><a href="index2.php">Consulta de históricos</a></li>
+            </ul>
+        </div>
+    <header>
     <div class="container">
         <h1>Consulta de históricos</h1>
         <p> Seleccione el intervalo de tiempo para consultar una ruta específica del vehículo:</p>

@@ -1,5 +1,6 @@
-var fechaInicio, fechaFinal, horaInicial, horaFinal, circle;
+var fechaInicio, fechaFinal, horaInicial, horaFinal, circle, radioSeleccionado;
 $(document).ready(function() {
+    
     $.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js");
 
     $("#fechaInicio, #fechaFinal").datepicker({
@@ -55,6 +56,8 @@ $(document).ready(function() {
                 circle.setMap(null);
             }
 
+            var radioInicial = 200;
+
             // Crea un nuevo círculo con radio de 200 metros en la ubicación seleccionada
             circle = new google.maps.Circle({
                 map: map,
@@ -67,6 +70,7 @@ $(document).ready(function() {
                 strokeWeight: 2,
             
             });
+            
             marker.setPosition({lat:latitud,lng:longitud});
             $.ajax({
                 type: "GET", 
@@ -78,7 +82,8 @@ $(document).ready(function() {
                     fechaInicio: fechaInicio,
                     fechaFinal: fechaFinal,
                     horaInicial: horaInicial,
-                    horaFinal: horaFinal
+                    horaFinal: horaFinal,
+                    radioSeleccionado: radioSeleccionado
                 },
                 success: function(latlong) {
                     console.log("Los parámetros recibidos son: " + JSON.stringify(latlong));
@@ -93,35 +98,40 @@ $(document).ready(function() {
                             dateItem.text(latlong[i].Timestamp);
                             dateSlider.append(dateItem);
                         }
-                        dateSlider.slick({
-                            centerMode: true,
-                            centerPadding: '60px',
-                            slidesToShow: 3,
-                            responsive: [
-                                {
-                                breakpoint: 768,
-                                settings: {
-                                    arrows: false,
-                                    centerMode: true,
-                                    centerPadding: '40px',
-                                    slidesToShow: 3
-                                }
-                                },
-                                {
-                                breakpoint: 480,
-                                settings: {
-                                    arrows: false,
-                                    centerMode: true,
-                                    centerPadding: '40px',
-                                    slidesToShow: 1
-                                }
-                                }
-                            ]
+                        $("#date-slider-container").slider({
+                            range: "min",
+                            min: 0,
+                            max: latlong.length - 1,
+                            slide: function (event, ui) {
+                                var selectedDate = latlong[ui.value].Timestamp;
+                                var selectedLat = parseFloat(latlong[ui.value].Latitud);
+                                console.log(selectedLat);
+                                var selectedLng = parseFloat(latlong[ui.value].Longitud);
+                                console.log(selectedLng);
+                                console.log("Fecha seleccionada:", selectedDate);
+                                placeMarker(selectedLat, selectedLng, selectedDate);
+                            }
                         });
 
                     }else{
                         alert("No se encontró información en la base de datos para el lugar seleccionado");
                     };
+                    function placeMarker(lat, lng, date) {
+                        // Elimina el marcador anterior si existe
+                        if (marker) {
+                            marker.setMap(null);
+                        }
+                    
+                        // Crea un nuevo marcador
+                        marker = new google.maps.Marker({
+                            position: { lat: lat, lng: lng },
+                            map: map,
+                            title: date // Puedes utilizar la fecha como título del marcador
+                        });
+
+                        $("#selected-date-label").text("Fecha correspondiente a la ubicación mostrada: " + date);
+
+                    }
 
                     
                 },

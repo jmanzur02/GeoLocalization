@@ -29,6 +29,7 @@ $horaFinal = $_GET['horaFinal'];
 // Definir el radio de búsqueda en metros (en este caso, 200 metros)
 $radio = 200;
 
+
 // Calcular las diferencias máximas permitidas en latitud y longitud
 $latitud_diff = ($radio / 6371000) * (180 / pi());
 $longitud_diff = ($radio / 6371000) * (180 / pi()) / cos(deg2rad($latitud));
@@ -40,7 +41,7 @@ $min_longitud = $longitud - $longitud_diff;
 $max_longitud = $longitud + $longitud_diff;
 
 // Consulta SQL para obtener las fechas y horas en las que el vehículo pasó por las coordenadas dentro del radio especificado
-$sql_lat = "SELECT Timestamp FROM posicion WHERE Latitud BETWEEN $min_latitud AND $max_latitud AND Longitud BETWEEN $min_longitud AND $max_longitud AND Timestamp BETWEEN '$fechaInicio $horaInicial' AND '$fechaFinal $horaFinal'";
+$sql_lat = "SELECT * FROM posicion WHERE Latitud BETWEEN $min_latitud AND $max_latitud AND Longitud BETWEEN $min_longitud AND $max_longitud AND Timestamp BETWEEN '$fechaInicio $horaInicial' AND '$fechaFinal $horaFinal'";
 
 $result_lat = $conn->query($sql_lat);
 
@@ -50,6 +51,8 @@ $latlong = array();
 if ($result_lat->num_rows > 0) {
     while($row = $result_lat->fetch_assoc()) {
         $latlong[] = array(
+            "Latitud" => $row["Latitud"],
+            "Longitud" => $row["Longitud"],
             "Timestamp" => $row["Timestamp"]
         );
     }

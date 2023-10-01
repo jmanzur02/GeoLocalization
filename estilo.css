@@ -1,4 +1,5 @@
 
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -67,53 +68,22 @@ button:hover {
     width: 100%; /* Ancho al 100% para que ocupe todo el ancho disponible */
 }
 
-
-/* Estilos para la data-container */
-.data-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    max-height: 200px;
-    overflow-y: auto;
+/* Estilo para el label de fecha seleccionada */
+#selected-date-label {
+    position: relative;
+    top: 10px; /* Ajusta la posición vertical según sea necesario */
+    background-color: white; /* Fondo blanco para que el texto sea legible */
+    padding: 5px; /* Espaciado interno para el label */
+    border: 1px solid #ccc; /* Borde para el label */
+    border-radius: 5px; /* Borde redondeado */
 }
 
+/* Estilo para el contenedor del slider */
 #date-slider-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    max-height: 200px;
-    overflow-y: auto;
-    background-color: #fff; /* Cambia el fondo al color deseado */
-    border-radius: 5px; /* Añade bordes redondeados si lo deseas */
+    position: relative; /* Permite que el contenedor sea el contexto de posición para el slider */
+    margin-top: 10px; /* Espacio para dejar lugar al label de fecha seleccionada */
 }
 
-/* Estilo para el encabezado del slider de fechas */
-#date-slider-container h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el slider de fechas */
-#date-slider {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-}
-
-/* Estilo para los elementos de fecha en el slider */
-#date-slider div {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Estilo para los elementos de fecha activos en el slider */
-#date-slider div.slick-center {
-    background-color: #0056b3;
-}
 
 /* Estilo para la barra de navegación */
 .navbar {

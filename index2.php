@@ -10,7 +10,7 @@
             width: 100%;
         }
     </style>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -44,11 +44,11 @@
         <button id="trazar-ruta">Trazar ruta</button>
         <button id="borrar-trazado">Borrar histórico</button>
         <div id="map"></div>
-        <div id="date-slider-container">
+        <div id="radioValue">Radio: 200 metros a la redonda del área pulsada</div>
+       
         <h2>Fechas disponibles en la posición pulsada</h2>
-        <div id="date-slider">
-            <!-- Aquí se mostrarán las fechas -->
-        </div>
+        <div id="date-slider-container">
+        <div id="selected-date-label">Fecha correspondiente a la ubicación mostrada: </div>
     </div>
     </div>
 
@@ -58,6 +58,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp5birBy8ELAwJKpgqApyKXgQkPzUFjAg"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
     <script src="script2.js"></script>
 </body>
 </html>

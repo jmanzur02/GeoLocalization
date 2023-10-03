@@ -47,6 +47,7 @@
         <div id="radioValue">Radio: 200 metros a la redonda del área pulsada</div>
        
         <h2>Fechas disponibles en la posición pulsada</h2>
+        <label for="date-slider-container">Por favor, deslice la barra para observar los cambios en las fechas</label>
         <div id="date-slider-container">
         <div id="selected-date-label">Fecha correspondiente a la ubicación mostrada: </div>
     </div>

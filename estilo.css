@@ -82,6 +82,7 @@ button:hover {
 #date-slider-container {
     position: relative; /* Permite que el contenedor sea el contexto de posición para el slider */
     margin-top: 10px; /* Espacio para dejar lugar al label de fecha seleccionada */
+    background-color: #0056b3;
 }
 
 
